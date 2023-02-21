@@ -49,16 +49,16 @@ export default () => {
 
   const extractModel = async () => {
     try {
-      setLoading(loading.map((item, index) => (index === 1 ? true : item)));
+      setLoading(loading.map((item, index) => (index === 2 ? true : item)));
       const response = await extract_files();
       console.log(response?.data);
       setExtract({
         data: response?.data?.data,
         status: response?.data?.status,
       });
-      setLoading(loading.map((item, index) => (index === 1 ? false : item)));
+      setLoading(loading.map((item, index) => (index === 2 ? false : item)));
     } catch (error) {
-      setLoading(loading.map((item, index) => (index === 1 ? false : item)));
+      setLoading(loading.map((item, index) => (index === 2 ? false : item)));
       setExtract({
         data: [],
         status: false,
@@ -69,15 +69,15 @@ export default () => {
 
   const captureModel = async () => {
     try {
-      setLoading(loading.map((item, index) => (index === 2 ? true : item)));
+      setLoading(loading.map((item, index) => (index === 1 ? true : item)));
       const response = await capture_network();
       console.log(response?.data);
       setCapture({
         status: response?.data?.status,
       });
-      setLoading(loading.map((item, index) => (index === 2 ? false : item)));
+      setLoading(loading.map((item, index) => (index === 1 ? false : item)));
     } catch (error) {
-      setLoading(loading.map((item, index) => (index === 2 ? false : item)));
+      setLoading(loading.map((item, index) => (index === 1 ? false : item)));
       setCapture({
         status: false,
       });
