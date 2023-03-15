@@ -1,3 +1,4 @@
+import { classifier } from '@/services/DLP_Main/classifier';
 import { message } from 'antd';
 import { useState } from "react";
 import {
@@ -85,6 +86,25 @@ export default () => {
       });
     }
   }
+  const classifierModel = async () => {
+    try {
+      setLoading(loading.map((item, index) => (index === 3 ? true : item)));
+      const response = await classifier();
+      console.log(response?.data);
+      message.success(`${response?.data?.message}`);
+      setCapture({
+        status: response?.data?.status,
+      });
+      setLoading(loading.map((item, index) => (index === 3 ? false : item)));
+    } catch (error) {
+      setLoading(loading.map((item, index) => (index === 3 ? false : item)));
+      setCapture({
+        status: false,
+      });
+    }
+  }
+
+
 
   return {
     loading,
@@ -99,6 +119,7 @@ export default () => {
     extractModel,
     captureModel,
     storageModel,
+    classifierModel,
 
   };
 };

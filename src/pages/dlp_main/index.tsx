@@ -8,6 +8,7 @@ import DlpMainCapture from './DlpMainCapture';
 
 
 import { Collapse } from 'antd';
+import DlpMainClassifier from './DlpMainClassifier';
 
 const { Panel } = Collapse;
 
@@ -63,6 +64,9 @@ const DlpMain = () => {
               /> : (<p style={{ textAlign: 'center' }}>Chưa có kết quả</p>)}
             </div>
           )}
+        </Panel>
+        <Panel header="Classifier" key="4" className={styles.panelDlpmain}>
+          <DlpMainClassifier />
         </Panel>
       </Collapse>
     </div>
