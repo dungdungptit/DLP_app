@@ -91,7 +91,7 @@ export default () => {
       setLoading(loading.map((item, index) => (index === 3 ? true : item)));
       const response = await classifier();
       console.log(response?.data);
-      message.success(`${response?.data?.message}`);
+      message.warning(`${response?.data?.message}`);
       setCapture({
         status: response?.data?.status,
       });
