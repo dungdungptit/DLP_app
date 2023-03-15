@@ -24,7 +24,7 @@ const Login: React.FC = () => {
       console.log('info', info);
       if (info.status === 200) {
         let systemRole = '';
-        if (info.data?.data?.is_superuser === true) {
+        if (info.data?.is_superuser === true) {
           systemRole = 'Admin'
         } else {
           systemRole = 'User'
@@ -33,7 +33,7 @@ const Login: React.FC = () => {
         setInitialState({
           ...initialState,
           currentUser: {
-            ...info.data?.data,
+            ...info.data,
             systemRole: systemRole,
           },
         });
