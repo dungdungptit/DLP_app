@@ -17,42 +17,30 @@ const Login: React.FC = () => {
     console.log('Success:', values);
     const res = await loginModel({ username: values.username, password: values.password });
     console.log('res', res);
-    // if (res.status === 200 && res.data?.jwt) {
-    //   const info = await getInfo(values.username);
-    //   localStorage.setItem('token', res.data?.jwt);
-    //   localStorage.setItem('username', values.username);
-    //   console.log('info', info);
-    //   if (info.status === 200) {
-    //     let systemRole = '';
-    //     if (info.data?.data?.is_superuser === true) {
-    //       systemRole = 'Admin'
-    //     } else {
-    //       systemRole = 'User'
-    //     }
-    //     localStorage.setItem('vaiTro', systemRole);
-    //     setInitialState({
-    //       ...initialState,
-    //       currentUser: {
-    //         ...info.data?.data,
-    //         systemRole: systemRole,
-    //       },
-    //     });
-    //     history.push(data?.path?.[systemRole] ?? '/');
-    //     return;
-    //   }
-    // }
-    // };
-    localStorage.setItem('token', "abc");
-    localStorage.setItem('username', values.username);
-    localStorage.setItem('vaiTro', 'Admin');
-    setInitialState({
-      ...initialState,
-      currentUser: {
-        username: values.username,
-        systemRole: 'Admin',
-      },
-    });
-    history.push('/');
+    if (res.status === 200 && res.data?.auth_token) {
+      localStorage.setItem('token', res.data?.auth_token);
+      localStorage.setItem('username', values.username);
+      const info = await getInfo();
+      console.log('info', info);
+      if (info.status === 200) {
+        let systemRole = '';
+        if (info.data?.data?.is_superuser === true) {
+          systemRole = 'Admin'
+        } else {
+          systemRole = 'User'
+        }
+        localStorage.setItem('vaiTro', systemRole);
+        setInitialState({
+          ...initialState,
+          currentUser: {
+            ...info.data?.data,
+            systemRole: systemRole,
+          },
+        });
+        history.push(data?.path?.[systemRole] ?? '/');
+        return;
+      }
+    };
   };
 
   const onFinishFailed = (errorInfo: any) => {

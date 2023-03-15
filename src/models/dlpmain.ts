@@ -1,3 +1,4 @@
+import { message } from 'antd';
 import { useState } from "react";
 import {
   storage
@@ -72,6 +73,7 @@ export default () => {
       setLoading(loading.map((item, index) => (index === 1 ? true : item)));
       const response = await capture_network();
       console.log(response?.data);
+      message.success(`file thu được + ${response?.data?.file}`);
       setCapture({
         status: response?.data?.status,
       });

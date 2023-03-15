@@ -11,13 +11,13 @@ const DlpMainCapture = () => {
 
   React.useEffect(() => {
     if (checked === true) {
-      interval.current = setInterval(() => {
+      // interval.current = setInterval(() => {
         dlpmain.captureModel();
-      }, 1000);
-    } else {
-      clearInterval(interval.current);
+      // }, 1000);
+    // } else {
+      // clearInterval(interval.current);
     }
-  }, [checked]);
+  }, [checked, dlpmain.loading[1]]);
 
 
   const onChange = (checked: boolean) => {

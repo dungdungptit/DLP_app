@@ -51,39 +51,31 @@ export async function getInitialState(): Promise<{
   };
 }> {
   const fetchUserInfo: () => Promise<any> = async () => {
-    // try {
-    //   const auth = localStorage.getItem('vaiTro') as ESystemRole;
-    //   const token = localStorage.getItem('token');
-    //   const username = localStorage.getItem('username');
-    //   let currentUser;
-    //   console.log(username);
+    try {
+      const auth = localStorage.getItem('vaiTro') as ESystemRole;
+      const token = localStorage.getItem('token');
+      const username = localStorage.getItem('username');
+      let currentUser;
+      console.log(username);
 
-    //   if (auth && token) {
-    //     console.log('auth', auth);
-    //     console.log((await getInfo(username)));
-    //     if ([ESystemRole.Admin || ESystemRole.User].includes(auth)) currentUser = (await getInfo(username))?.data?.data;
-    //     else currentUser = (await getInfo(username))?.data?.data;
-    //   }
-    //   return {
-    //     ...currentUser,
-    //     systemRole: auth,
-    //   }
-    // } catch (error) {
-    //   const { location } = history;
-    //   if (!pathAuth.includes(location.pathname)) history.push(loginPath);
-    // }
-    // return undefined;
-    return {
-      systemRole: localStorage.getItem('vaiTro'),
-      username: localStorage.getItem('username'),
+      if (auth && token) {
+        console.log('auth', auth);
+        console.log((await getInfo()));
+        if ([ESystemRole.Admin || ESystemRole.User].includes(auth)) currentUser = (await getInfo())?.data;
+        else currentUser = (await getInfo())?.data;
+      }
+      return {
+        ...currentUser,
+        systemRole: auth,
+      }
+    } catch (error) {
+      const { location } = history;
+      if (!pathAuth.includes(location.pathname)) history.push(loginPath);
     }
+    return undefined;
   };
   if (history.location.pathname !== loginPath) {
-    // const currentUser: Login.User = await fetchUserInfo();
-    const currentUser = {
-      systemRole: localStorage.getItem('vaiTro'),
-      username: localStorage.getItem('username'),
-    };
+    const currentUser: Login.User = await fetchUserInfo();
     console.log(currentUser);
     // const phanNhom = await getPhanNhom();
     return {

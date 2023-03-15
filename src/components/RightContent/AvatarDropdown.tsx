@@ -107,7 +107,7 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu }) => {
             alt="avatar"
           />
           <span className={`${styles.name} anticon`}>
-            {`${currentUser?.first_name ?? ''} ${currentUser?.last_name ?? ''}`}
+            {`${currentUser?.username}`}
           </span>
         </span>
       </HeaderDropdown>
