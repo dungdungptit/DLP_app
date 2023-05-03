@@ -12,7 +12,9 @@ const DlpMainClassifier = () => {
   React.useEffect(() => {
     if (checked === true) {
       // interval.current = setInterval(() => {
-        dlpmain.classifierModel();
+        if(dlpmain.loading[3] === false){
+          dlpmain.classifierModel();
+        }
       // }, 1000);
     // } else {
       // clearInterval(interval.current);

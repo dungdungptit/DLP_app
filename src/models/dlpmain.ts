@@ -15,7 +15,7 @@ import {
 
 export default () => {
   const [loading, setLoading] = useState<boolean[]>(
-    new Array(3).fill(false)
+    new Array(4).fill(false)
   );
   const [dataStorage, setStorage] = useState<any>({
     file: [],
@@ -28,6 +28,10 @@ export default () => {
   });
 
   const [dataCapture, setCapture] = useState<any>({
+    status: false,
+  });
+
+  const [dataClassifier, setClassifier] = useState<any>({
     status: false,
   });
   const storageModel = async (folder_in: string, file_out: string) => {
@@ -92,13 +96,13 @@ export default () => {
       const response = await classifier();
       console.log(response?.data);
       message.warning(`${response?.data?.message}`);
-      setCapture({
+      setClassifier({
         status: response?.data?.status,
       });
       setLoading(loading.map((item, index) => (index === 3 ? false : item)));
     } catch (error) {
       setLoading(loading.map((item, index) => (index === 3 ? false : item)));
-      setCapture({
+      setClassifier({
         status: false,
       });
     }
