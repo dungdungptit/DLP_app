@@ -146,7 +146,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
     waterMarkProps: {
       content: initialState?.currentUser?.username,
     },
-    // headerRender: (props, dom) => <div style={{ backgroundColor: '#CC0D00' }}>{dom}</div>,
+    // headerRender: (props, dom) => <div style={{ backgroundColor: '#006CB5' }}>{dom}</div>,
     isMobile: true,
     // footerRender: () => <GlobalFooter />,
     onPageChange: () => {

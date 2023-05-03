@@ -368,7 +368,7 @@ export enum EHinhThucLePhiTuyenSinh {
 
 export const Setting = {
   navTheme: 'dark',
-  primaryColor: '#CC0D00',
+  primaryColor: '#006CB5',
   layout: 'mix',
   contentWidth: 'Fluid',
   fixedHeader: false,

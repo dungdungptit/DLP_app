@@ -82,7 +82,7 @@ const KichHoatTaiKhoan: React.FC = () => {
             để gửi lại
           </p>
         )}
-        <p style={{ color: '#CC0D00' }}>
+        <p style={{ color: '#006CB5' }}>
           <i>Lưu ý: Thí sinh kiểm tra cả hộp thư rác/spam</i>
         </p>
 

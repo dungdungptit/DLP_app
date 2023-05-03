@@ -1,6 +1,6 @@
 const ip3 = 'http://25.31.77.102:9090'; // ip dev
 // const ip = 'http://25.31.77.102:9090'; // ip dev
-const ip = 'http://192.168.1.64:9900'; // ip dev
+const ip = 'http://10.0.12.66:9900'; // ip dev
 
 const ipPayment = 'https://tssv3.aisenote.com/payment'; // ip dev
 

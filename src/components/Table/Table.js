@@ -39,7 +39,7 @@ class App extends React.Component {
       </div>
     ),
     filterIcon: (filtered) => (
-      <SearchOutlined style={{ color: filtered ? '#CC0D00' : undefined }} />
+      <SearchOutlined style={{ color: filtered ? '#006CB5' : undefined }} />
     ),
     onFilter: (value, record) =>
       record[dataIndex]
